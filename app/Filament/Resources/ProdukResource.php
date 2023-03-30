@@ -28,6 +28,7 @@ class ProdukResource extends Resource
                     ->columnSpan('full'),
                 Forms\Components\TextArea::make('deskripsi')
                     ->columnSpan('full'),
+                Forms\Components\FileUpload::make('gambar'),
                 Forms\Components\Select::make('kategori_id')
                     ->Relationship('kategori', 'nama'),
                 Forms\Components\TextInput::make('harga')
@@ -42,7 +43,9 @@ class ProdukResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nama'),
-                Tables\Columns\TextColumn::make('kategori.nama'),
+                Tables\Columns\TextColumn::make('deskripsi'),
+                Tables\Columns\ImageColumn::make('gambar'), 
+                Tables\Columns\TextColumn::make('kategori_id'),
                 Tables\Columns\TextColumn::make('harga'),
                 Tables\Columns\TextColumn::make('stok'),
             ])

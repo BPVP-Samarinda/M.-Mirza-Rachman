@@ -11,11 +11,15 @@ class Produk extends Model
 
     protected $table = 'produk';
     protected $fillable = [
-        'nama', 'deskripsi', 'harga', 'stok'
+        'nama', 'gambar', 'deskripsi', 'harga', 'stok'
     ];
 
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+    }
+    public function gambar()
+    {
+        return $this->belongsTo(gambar::class);
     }
 }
