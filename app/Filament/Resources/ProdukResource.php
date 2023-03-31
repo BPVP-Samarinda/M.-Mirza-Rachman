@@ -26,7 +26,7 @@ class ProdukResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('nama')
                     ->columnSpan('full'),
-                Forms\Components\TextArea::make('deskripsi')
+                Forms\Components\Textarea::make('deskripsi')
                     ->columnSpan('full'),
                 Forms\Components\FileUpload::make('gambar'),
                 Forms\Components\Select::make('kategori_id')
