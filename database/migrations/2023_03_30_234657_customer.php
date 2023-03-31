@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->nullable();
             $table->text('alamat')->nullable();
-            $table->date('tanggal_lahir')->default(0);
+            $table->date('tanggal_lahir')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->string('email')->nullable();
             $table->string('hp')->nullable();
