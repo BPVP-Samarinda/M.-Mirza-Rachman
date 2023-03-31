@@ -45,7 +45,7 @@ class ProdukResource extends Resource
                 Tables\Columns\TextColumn::make('nama'),
                 Tables\Columns\TextColumn::make('deskripsi'),
                 Tables\Columns\ImageColumn::make('gambar'),
-                Tables\Columns\TextColumn::make('kategori_id'),
+                Tables\Columns\TextColumn::make('kategori.nama'),
                 Tables\Columns\TextColumn::make('harga'),
                 Tables\Columns\TextColumn::make('stok'),
             ])
