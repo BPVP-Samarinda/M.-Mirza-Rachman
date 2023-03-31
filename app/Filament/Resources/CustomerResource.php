@@ -23,7 +23,18 @@ class CustomerResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('nama')
+                    ->columnSpan('full'),
+                    Forms\Components\TextInput::make('alamat')
+                    ->columnSpan('full'),
+                Forms\Components\Textarea::make('tanggal_lahir')
+                    ->mindate(now()->subYears(150))
+                    ->maxdate(now()),
+                Forms\Components\Radio::make('jenis_kelamin')
+                    ->options([
+                        'L' => 'Laki-laki',
+                        'P' => 'Perempuan',
+                    ])
             ]);
     }
 
@@ -31,32 +42,27 @@ class CustomerResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('nama'),
+                Tables\Columns\TextColumn::make('alamat'),
+                Tables\Columns\TextColumn::make('tanggal_lahir'),
+                Tables\Columns\TextColumn::make('jenis_kelamin'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-    
+
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCustomers::route('/'),
-            'create' => Pages\CreateCustomer::route('/create'),
-            'edit' => Pages\EditCustomer::route('/{record}/edit'),
+            'index' => Pages\ManageCustomers::route('/'),
         ];
-    }    
+    }
 }

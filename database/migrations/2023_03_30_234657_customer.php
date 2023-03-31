@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-//
+        Schema::create('customers', function ($table) {
+            $table->id();
+            $table->string('nama')->nulltable();
+            $table->text('tanggal_lahir')->nulltable();
+            $table->string('status')->default(0);
+            $table->text('jenis_kelamin')->default(0);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-//
+        Schema::dropIfExists('customers');
     }
 };
