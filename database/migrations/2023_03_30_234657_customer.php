@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('customer', function ($table) {
             $table->id();
-            $table->string('nama')->nulltable();
-            $table->text('tanggal_lahir')->nulltable();
-            $table->string('status')->default(0);
-            $table->text('jenis_kelamin')->default(0);
+            $table->string('nama')->nullable();
+            $table->text('alamat')->nullable();
+            $table->date('tanggal_lahir')->default(0);
+            $table->string('jenis_kelamin')->nullable();
+            $table->string('email')->nullable();
+            $table->string('hp')->nullable();
             $table->timestamps();
         });
     }

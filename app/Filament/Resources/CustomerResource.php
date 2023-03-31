@@ -24,16 +24,23 @@ class CustomerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('nama')
-                    ->columnSpan('full'),
-                    Forms\Components\TextInput::make('alamat')
-                    ->columnSpan('full'),
-                Forms\Components\Textarea::make('tanggal_lahir')
-                    ->mindate(now()->subYears(150))
-                    ->maxdate(now()),
+                    ->columnSpan('full')
+                    ->required(),
+                Forms\Components\TextInput::make('alamat')
+                    ->columnSpan('full')
+                    ->required(),
+                Forms\Components\DatePicker::make('tanggal_lahir')
+                    ->required(),
                 Forms\Components\Radio::make('jenis_kelamin')
                     ->options([
                         'L' => 'Laki-laki',
                         'P' => 'Perempuan',
+                        Forms\Components\TextInput::make('email')
+                            ->columnSpan('full')
+                            ->required(),
+                        Forms\Components\TextInput::make('hp')
+                            ->columnSpan('full')
+                            ->required(),
                     ])
             ]);
     }
@@ -46,6 +53,8 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make('alamat'),
                 Tables\Columns\TextColumn::make('tanggal_lahir'),
                 Tables\Columns\TextColumn::make('jenis_kelamin'),
+                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('hp'),
             ])
             ->filters([
                 //

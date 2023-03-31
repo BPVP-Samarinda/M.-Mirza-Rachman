@@ -15,5 +15,7 @@ class customer extends Model
         'alamat',
         'tanggal_lahir',
         'jenis_kelamin',
+        'email',
+        'hp'
     ];
 }
